@@ -169,38 +169,6 @@ a {color: inherit; text-decoration: none;}
 .fw-800{font-weight: 800;}
 .fw-900{font-weight: 900;}
 
-.fs-10{font-size: 10px;}
-.fs-11{font-size: 11px;}
-.fs-12{font-size: 12px;}
-.fs-13{font-size: 13px;}
-.fs-14{font-size: 14px;}
-.fs-15{font-size: 15px;}
-.fs-16{font-size: 16px;}
-.fs-18{font-size: 18px;}
-.fs-20{font-size: 20px;}
-.fs-21{font-size: 21px;}
-.fs-24{font-size: 24px;}
-.fs-26{font-size: 26px;}
-.fs-28{font-size: 28px;}
-.fs-31{font-size: 31px;}
-.fs-32{font-size: 32px;}
-.fs-34{font-size: 34px;}
-.fs-38{font-size: 38px;}
-.fs-42{font-size: 42px;}
-.fs-45{font-size: 45px;}
-.fs-46{font-size: 46px;}
-.fs-48{font-size: 48px;}
-.fs-50{font-size: 50px;}
-.fs-52{font-size: 52px;}
-.fs-54{font-size: 54px;}
-.fs-56{font-size: 56px;}
-.fs-58{font-size: 58px;}
-.fs-62{font-size: 62px;}
-.fs-64{font-size: 64px;}
-.fs-68{font-size: 68px;}
-.fs-72{font-size: 72px;}
-.fs-140{font-size: 140px;}
-
 .fc-fff{color: #fff;}
 .fc-222{color: #222;}
 .fc-4f4f4f{color: #4f4f4f;}
@@ -210,113 +178,26 @@ a {color: inherit; text-decoration: none;}
 .fc-666{color: #666;}
 .fc-828282{color: #828282;}
 .fc-e5e2d7{color: #e5e2d7;}
-.fc-333{color: #333333;}
-
-.lh-15{line-height: 1.5;}
-.lh-16{line-height: 1.6;}
-.lh-17{line-height: 1.7;}
+.fc-333 {
+  color: #333333;
+  font-size: calc(var(--default-FZ)*2);
+}
+.fc-9b2 {
+  color: #9B2335; 
+  font-size: var(--default-FZ);
+  font-weight: 500;
+}
+.fc-b8a {
+  color: #B8A26F;
+  font-size: calc(var(--default-FZ)*2);
+  font-weight: 600;
+}
 
 .Dongle{font-family: "Dongle";}
 .Gowun-Dodum{font-family: "Gowun Dodum";}
 .SF_HambakSnow{font-family: "SF_HambakSnow";}
 
-/* 여백/패딩 */
-.pt-4{padding-top: 4px;}
-.pt-10{padding-top: 10px;}
-.pt-8{padding-top: 8px;}
-.pt-12{padding-top: 12px;}
-.pt-16{padding-top: 16px;}
-.pt-20{padding-top: 20px;}
-.pt-24{padding-top: 24px;}
-.pt-28{padding-top: 28px;}
-.pt-32{padding-top: 32px;}
-.pt-36{padding-top: 36px;}
-.pt-40{padding-top: 40px;}
 
-.pl-4{padding-left: 4px;}
-.pl-10{padding-left: 10px;}
-.pl-8{padding-left: 8px;}
-.pl-12{padding-left: 12px;}
-.pl-16{padding-left: 16px;}
-.pl-20{padding-left: 20px;}
-.pl-24{padding-left: 24px;}
-.pl-28{padding-left: 28px;}
-.pl-32{padding-left: 32px;}
-.pl-36{padding-left: 36px;}
-.pl-40{padding-left: 40px;}
-
-.pr-4{padding-right: 4px;}
-.pr-10{padding-right: 10px;}
-.pr-8{padding-right: 8px;}
-.pr-12{padding-right: 12px;}
-.pr-16{padding-right: 16px;}
-.pr-20{padding-right: 20px;}
-.pr-24{padding-right: 24px;}
-.pr-28{padding-right: 28px;}
-.pr-32{padding-right: 32px;}
-.pr-36{padding-right: 36px;}
-.pr-40{padding-right: 40px;}
-
-.pb-4{padding-bottom: 4px;}
-.pb-10{padding-bottom: 10px;}
-.pb-8{padding-bottom: 8px;}
-.pb-12{padding-bottom: 12px;}
-.pb-16{padding-bottom: 16px;}
-.pb-20{padding-bottom: 20px;}
-.pb-24{padding-bottom: 24px;}
-.pb-28{padding-bottom: 28px;}
-.pb-32{padding-bottom: 32px;}
-.pb-36{padding-bottom: 36px;}
-.pb-40{padding-bottom: 40px;}
-
-/* 여백/마진 */
-.mt-4{margin-top: 4px;}
-.mt-10{margin-top: 10px;}
-.mt-8{margin-top: 8px;}
-.mt-12{margin-top: 12px;}
-.mt-16{margin-top: 16px;}
-.mt-20{margin-top: 20px;}
-.mt-24{margin-top: 24px;}
-.mt-28{margin-top: 28px;}
-.mt-32{margin-top: 32px;}
-.mt-36{margin-top: 36px;}
-.mt-40{margin-top: 40px;}
-
-.ml-4{margin-left: 4px;}
-.ml-10{margin-left: 10px;}
-.ml-8{margin-left: 8px;}
-.ml-12{margin-left: 12px;}
-.ml-16{margin-left: 16px;}
-.ml-20{margin-left: 20px;}
-.ml-24{margin-left: 24px;}
-.ml-28{margin-left: 28px;}
-.ml-32{margin-left: 32px;}
-.ml-36{margin-left: 36px;}
-.ml-40{margin-left: 40px;}
-
-.mr-4{margin-right: 4px;}
-.mr-10{margin-right: 10px;}
-.mr-8{margin-right: 8px;}
-.mr-12{margin-right: 12px;}
-.mr-16{margin-right: 16px;}
-.mr-20{margin-right: 20px;}
-.mr-24{margin-right: 24px;}
-.mr-28{margin-right: 28px;}
-.mr-32{margin-right: 32px;}
-.mr-36{margin-right: 36px;}
-.mr-40{margin-right: 40px;}
-
-.mb-4{margin-bottom: 4px;}
-.mb-10{margin-bottom: 10px;}
-.mb-8{margin-bottom: 8px;}
-.mb-12{margin-bottom: 12px;}
-.mb-16{margin-bottom: 16px;}
-.mb-20{margin-bottom: 20px;}
-.mb-24{margin-bottom: 24px;}
-.mb-28{margin-bottom: 28px;}
-.mb-32{margin-bottom: 32px;}
-.mb-36{margin-bottom: 36px;}
-.mb-40{margin-bottom: 40px;}
 
 
 /* .img-box img {
@@ -335,6 +216,7 @@ a {color: inherit; text-decoration: none;}
   /* layout */
   --max-width: 1440px;
   --default-LH: 160%;
+  --small-LH: 150%;
   --header--height: 80px;
   --section-padding: 140px;
   --section-gap-sm: 16px;

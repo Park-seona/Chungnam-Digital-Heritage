@@ -2,10 +2,51 @@
 .container{
   max-width: 1800px;
   width: 100%;
+  height: 100%;
   margin: 0 auto;
-  padding: 80px 20px;
+  padding: 0 20px;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
+
+/* === 각 섹션별 풀페이지 스크롤 === */
+main {
+    /* height: auto;
+    overflow: visible; */
+    height: 100vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    scroll-snap-type: y mandatory; 
+}
+
+main section {
+  width: 100%;
+  height: 100vh;
+
+  scroll-snap-align: start;  
+
+  display: flex;
+  align-items: center;
+}
+
+/* === 우측 - 햄버거 버튼 === */
+.mobile_menu_toggle {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.mobile_menu_toggle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+
+
 
 /* === 공통 타이틀 + 여백 === */
 .section-header {
@@ -25,6 +66,7 @@
 .section-title {
     /* font-size: 32px; */
     font-size: calc(var(--default-FZ)*2);
+    line-height: var(--small-LH);
     font-weight: 600;
     color: #FFFFFF;
 }
@@ -35,14 +77,37 @@
     color: #E5E2D7;
 }
 
+.year-header {
+    position: absolute;
+    left: 60px;
+    top: 130px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 1.25rem;
+
+    font-family: "SF_HambakSnow";
+    line-height: var(--default-LH);
+    color: #333;
+}
+.year-sub {
+    font-size: calc(var(--default-FZ)*4);
+    line-height: var(--small-LH);
+}
+.year-title {
+    font-size: calc(var(--default-FZ)*1.5);
+    line-height: var(--small-LH);
+}
+
 
 /* ====== 레이아웃 ====== */
 
 /* Topbar */
 header {
     width: 100%;
-    height: 100px;
-    background: #fff;
+    height: 96px;
+    background-color: #F5F3EC;
     display: flex;
     justify-content: center;
 }
@@ -59,7 +124,7 @@ header .mobile > img {
 }
 
 .topbar-inner {
-    max-width: 1200px;
+    max-width: 1800px;
     width: 100%;
     display: grid;
     grid-template-columns: 72px 1fr 72px;
@@ -106,9 +171,15 @@ ul.nav li:hover {
     overflow: hidden;
 }
 
+.main-banner figure {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
 .main-banner img{
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    height: 100%;
     object-fit: cover;    /* 비율 유지하면서 꽉 채움 */
     display: block;
 }
@@ -117,11 +188,152 @@ ul.nav li:hover {
 /* === 섹션 1 - 소개 === */
 .heritage-intro {
     width: 100%;
-    min-height: 100vh;        /* 👉 풀스크린 */
+    min-height: 100vh;       
     background: #4a4645;    
     display: flex;
     align-items: center;
     position: relative;
+}
+
+.history {
+    width: 100%;
+    min-height: 100vh;        
+    background: #4a4645;    
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    background: url(../image/section-bg-03.jpg) no-repeat center / cover;
+}
+
+.since-year {
+    width: 100%;
+    min-height: 100vh;       
+    background: #232015;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.since-year .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.since-year .since-text {
+    margin: 0;
+    transform: translateY(-3%);
+    font-family: "SF_HambakSnow";
+    font-size: calc(var(--default-FZ)*8.75);
+    color: #fff;
+}
+
+/* .year-2003 {
+    width: 100%;
+    min-height: 100vh;        
+    background: #F5F3EC;    
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.year-2019 {
+    width: 100%;
+    min-height: 100vh;        
+    background: #F5F3EC;    
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.year-2021 {
+    width: 100%;
+    min-height: 100vh;       
+    background: #F5F3EC;    
+    display: flex;
+    align-items: center;
+    position: relative;
+} */
+
+/* 전체 섹션 */
+.timeline-section {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  background: #F5F3EC;
+  scroll-snap-type: y mandatory; /* 👉 핵심 */
+}
+
+
+/* 각 페이지 */
+.timeline-item {
+  width: 100%;
+  height: 100vh;
+
+  scroll-snap-align: start; /* 👉 핵심 */
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.timeline {
+  width: 100%;
+  height: 100%;
+}
+
+.timeline-item.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+/* === 섹션 7 - 파트너사 === */
+.partners {
+    width: 100%;
+    min-height: 230px;       
+    background: #F5F3EC;    
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.logo-slider {
+  overflow: hidden;
+}
+
+.logo-track {
+  display: flex;
+  gap: 60px;
+  width: max-content;
+  animation: scroll 25s linear infinite;
+}
+
+.logo-track img {
+  height: 50px;
+  flex-shrink: 0;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* === footer === */
+footer {
+    width: 100%;
+    min-height: 560px;
+    background-color: #161616;
+    color: #fff;
 }
 
 
