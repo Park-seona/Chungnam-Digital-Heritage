@@ -11,8 +11,6 @@
 
 /* === 각 섹션별 풀페이지 스크롤 === */
 main {
-    /* height: auto;
-    overflow: visible; */
     height: 100vh;
     overflow-y: scroll;
     scrollbar-width: none;
@@ -21,7 +19,17 @@ main {
 
 main section {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+
+  scroll-snap-align: start;  
+
+  display: flex;
+  align-items: center;
+}
+
+main footer {
+  width: 100%;
+  min-height: 56vh;
 
   scroll-snap-align: start;  
 
@@ -84,20 +92,147 @@ main section {
 
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: flex-start;
     gap: 1.25rem;
 
     font-family: "SF_HambakSnow";
     line-height: var(--default-LH);
     color: #333;
+
+    z-index: 1;
 }
+
 .year-sub {
+    display: block;
     font-size: calc(var(--default-FZ)*4);
     line-height: var(--small-LH);
+    margin-bottom: 20px;
 }
+
 .year-title {
     font-size: calc(var(--default-FZ)*1.5);
     line-height: var(--small-LH);
+    word-break: keep-all;
+}
+
+
+/* 햄버거 메뉴 */
+#mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(80%, 320px);
+  /* max-width: 280px; */
+  height: 100%;
+  background: #fff;
+
+  display: flex;
+  flex-direction: column;
+  /* padding: 24px; */
+  
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+
+  z-index: 1001;
+
+}
+
+#mobile-nav header {
+  padding: 0 0.875rem; 
+}
+
+/* 메뉴 open */
+body.menu_active #mobile-nav {
+  transform: translateX(0);
+}
+
+body.menu_active {
+  overflow: hidden;
+}
+
+/* 메뉴 리스트 */
+#mobile-nav nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#mobile-nav nav li {
+  border-bottom: 1px solid #222;
+}
+
+#mobile-nav nav ul li:hover {
+  background: #5f4de9;
+}
+
+#mobile-nav nav ul li:hover a {
+  color: #fff;
+}
+
+#mobile-nav nav a {
+  font-size: calc(var(--default-FZ)*1.25);
+  font-weight: 600;
+  color: #222;
+  text-decoration: none;
+  display: block;
+
+  transition: 0.2s;
+}
+
+/* 오버레이 */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: var(--Blur, rgba(210, 210, 215, 0.45));
+  backdrop-filter: blur(3px);
+  
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.3s;
+
+  z-index: 1000;
+}
+
+/* 오버레이 - open */
+body.menu_active .menu-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* hover 효과 */
+#mobile-nav nav a:hover {
+  color: #6C5CE7; /* 포인트 컬러 */
+}
+
+
+#mobile-nav nav {
+  flex: 1;
+}
+
+#mobile-nav nav ul li {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  font-size: 21px;
+  font-weight: 500;
+  border-bottom: 1px solid var(--black);
+}
+
+#mobile-nav #close {
+  display: none;
+  background: none;
+  border: none;
 }
 
 
@@ -110,6 +245,17 @@ header {
     background-color: #F5F3EC;
     display: flex;
     justify-content: center;
+
+    position: fixed;
+  top: 0;
+  width: 100%;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+/* 숨김 상태 */
+header.hide {
+  transform: translateY(-100%);
 }
 
 header .mobile {
@@ -123,23 +269,25 @@ header .mobile > img {
     object-fit: contain;
 }
 
+
 .topbar-inner {
     max-width: 1800px;
     width: 100%;
-    display: grid;
-    grid-template-columns: 72px 1fr 72px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 0 0.875rem;
 }
 
 /* 좌우 동일폭 */
-.topbar-slot{
-      /* flex: 0 0 72px; */
+/* .topbar-slot {
+    flex: 0 0 72px;
     display: flex;
     align-items: center;
-}
+} */
 
-.topbar-logo{
+.topbar-logo {
+    width: 60px;
     text-decoration: none;
     color: inherit;
 }
@@ -193,8 +341,11 @@ ul.nav li:hover {
     display: flex;
     align-items: center;
     position: relative;
+
+    background: url(../image/section-bg-01.jpg) no-repeat center / cover;
 }
 
+/* === 섹션 2 - 역사 === */
 .history {
     width: 100%;
     min-height: 100vh;        
@@ -206,6 +357,59 @@ ul.nav li:hover {
     background: url(../image/section-bg-03.jpg) no-repeat center / cover;
 }
 
+.img-box-01 {
+    position: absolute;
+    left: 93px;
+    bottom: 108px;
+    width: 264px;
+}
+
+.img-box-01 img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.img-box-02 {
+    position: absolute;
+    left: 710px;
+    top: 260px;
+    width: 264px;
+}
+
+.img-box-02 img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.img-box-03 {
+    position: absolute;
+    right: 641px;
+    bottom: 105px;
+    width: 264px;
+}
+
+.img-box-03 img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.img-box-04 {
+    position: absolute;
+    right: 74px;
+    top: 264px;
+    width: 264px;
+}
+
+.img-box-04 img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* === 섹션 2 - 연도별 기록 === */
 .since-year {
     width: 100%;
     min-height: 100vh;       
@@ -259,25 +463,106 @@ ul.nav li:hover {
 } */
 
 /* 전체 섹션 */
-.timeline-section {
+/* .timeline-section {
   width: 100%;
   height: 100vh;
   overflow-y: scroll;
   background: #F5F3EC;
-  scroll-snap-type: y mandatory; /* 👉 핵심 */
+  scroll-snap-type: y mandatory;
 }
 
+.timeline {
+  width: 100%;
+}
 
-/* 각 페이지 */
 .timeline-item {
   width: 100%;
   height: 100vh;
 
-  scroll-snap-align: start; /* 👉 핵심 */
+  scroll-snap-align: start; 
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   
+  align-items: flex-start;
+
+} */
+
+.timeline-wrap {
+  position: relative;
+  height: 100vh;
+  /* overflow: hidden; */
+}
+
+/* .year-sec {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 
   opacity: 0;
   transform: translateY(20px);
-  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+
+  pointer-events: none;
+  z-index: 0; 
+}  */
+
+/* .year-sec.active {
+  opacity: 1;
+  transform: translateY(0); 
+  pointer-events: auto;
+  z-index: 1; 
+} */
+
+.year-sec-wrap {
+  width: 100%;
+  min-height: 100vh; 
+}
+
+
+.year-sec {
+  width: 100%;
+  min-height: 100vh; 
+  opacity: 0;
+  transform: translateY(40px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.year-sec.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+/* 내부 요소 */
+.timeline-item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+  will-change: transform, opacity; /* 🔥 성능 */
+}
+
+.year-sec.active .timeline-item {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+
+
+
+/* .timeline-section {
+  width: 100%;
+  height: 100vh;
+  background: #F5F3EC;
+  scroll-snap-type: y mandatory;
 }
 
 .timeline {
@@ -285,9 +570,42 @@ ul.nav li:hover {
   height: 100%;
 }
 
+.timeline-item {
+  width: 100%;
+  height: 100vh;
+  background: #F5F3EC;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  scroll-snap-align: start;
+
+  opacity: 0.2;
+  transform: translateY(30px);
+}
+
+
 .timeline-item.active {
   opacity: 1;
   transform: translateY(0);
+} */
+
+.timeline-item hr {
+    position: absolute;
+    top: 500px;
+    width: 1800px;
+
+    border: none;
+    height: 0.5px;
+    background-color: #B8A26F;
+    margin: 0 auto;
+}
+
+.timeline-item img {
+    width: 457px;
+    z-index: 1;
 }
 
 
@@ -295,7 +613,8 @@ ul.nav li:hover {
 /* === 섹션 7 - 파트너사 === */
 .partners {
     width: 100%;
-    min-height: 230px;       
+    /* min-height: 230px;        */
+    min-height: 26vh;       
     background: #F5F3EC;    
     display: flex;
     align-items: center;
@@ -303,7 +622,8 @@ ul.nav li:hover {
 }
 
 .logo-slider {
-  overflow: hidden;
+  width: 100%;
+  /* overflow: hidden; */
 }
 
 .logo-track {
@@ -334,6 +654,49 @@ footer {
     min-height: 560px;
     background-color: #161616;
     color: #fff;
+    position: relative;
 }
 
+.footer-left {
+    position: absolute;
+    left: 60px;
+    top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 140px);
+}
+
+.footer-title {
+    font-size: calc(var(--default-FZ)*2);
+    font-weight: 800;
+}
+
+.footer-left img {
+    width: 60px;
+}
+
+
+
+.footer-right {
+    position: absolute;
+    right: 428px;
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-row:nth-child(1) {
+    display: flex;
+    gap: 28px;
+}
+.info-row:nth-child(2) {
+    display: flex;
+    gap: 70px;
+}
+.info-row:nth-child(3) {
+    display: flex;
+    gap: 48px;
+}
 
