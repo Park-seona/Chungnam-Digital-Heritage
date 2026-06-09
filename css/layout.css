@@ -9,20 +9,29 @@
   scroll-behavior: smooth;
 }
 
+/* header {
+  background: rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+
+  border: 1px solid rgba(255,255,255,0.15);
+
+} */
+
 /* === 각 섹션별 풀페이지 스크롤 === */
 main {
     height: 100vh;
     overflow-y: scroll;
     scrollbar-width: none;
-    scroll-snap-type: y mandatory; 
+    /* scroll-snap-type: y proximity; */
+    scroll-behavior: smooth;
 }
 
 main section {
   width: 100%;
   min-height: 100vh;
-
-  scroll-snap-align: start;  
-
+  /* scroll-snap-align: start;   */
   display: flex;
   align-items: center;
 }
@@ -30,15 +39,31 @@ main section {
 main footer {
   width: 100%;
   min-height: 56vh;
-
-  scroll-snap-align: start;  
-
+  /* scroll-snap-align: start;   */
   display: flex;
   align-items: center;
 }
 
+/* 섹션 -- 부드럽게 스크롤다운 */
+/* #sec1,
+#sec2,
+#sec3 {
+  opacity: .75;
+  filter: blur(3px);
+  transition: opacity 1s ease, filter 1s ease;
+}
+
+#sec1.active,
+#sec2.active,
+#sec3.active {
+  opacity: 1;
+  filter: blur(0);
+} */
+
+
+
 /* === 우측 - 햄버거 버튼 === */
-.mobile_menu_toggle {
+/* .mobile_menu_toggle {
     position: relative;
     width: 44px;
     height: 44px;
@@ -51,7 +76,7 @@ main footer {
     height: 100%;
     object-fit: contain;
     display: block;
-}
+} */
 
 
 
@@ -70,6 +95,7 @@ main footer {
     font-family: "SF_HambakSnow";
     line-height: var(--default-LH);
 }
+
 
 .section-title {
     /* font-size: 32px; */
@@ -116,7 +142,7 @@ main footer {
 }
 
 
-/* 햄버거 메뉴 */
+/* === 햄버거 메뉴 === */
 #mobile-nav {
   position: fixed;
   top: 0;
@@ -138,6 +164,9 @@ main footer {
 }
 
 #mobile-nav header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 0 0.875rem; 
 }
 
@@ -150,6 +179,40 @@ body.menu_active {
   overflow: hidden;
 }
 
+#mobile-nav{
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 360px;
+  max-width: 100%;
+  height: 100vh;
+  background: #fff;
+  z-index: 99999;
+  transition: right .3s;
+  overflow: visible;
+}
+
+body.menu_active #mobile-nav{
+  right: 0;
+}
+
+#mobile-nav #close{
+  display: none;
+}
+
+body.menu_active #mobile-nav #close{
+  display: flex;
+  position: fixed;
+  top: 28px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  z-index: 100000;
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
 /* 메뉴 리스트 */
 #mobile-nav nav ul {
   list-style: none;
@@ -158,11 +221,11 @@ body.menu_active {
 }
 
 #mobile-nav nav li {
-  border-bottom: 1px solid #222;
+  border-bottom: 0.5px solid #d2c7b1;
 }
 
 #mobile-nav nav ul li:hover {
-  background: #5f4de9;
+  background: #9B2335;
 }
 
 #mobile-nav nav ul li:hover a {
@@ -220,13 +283,12 @@ body.menu_active .menu-overlay {
 }
 
 #mobile-nav nav ul li {
-  height: 80px;
+  height: 100px;
   display: flex;
   align-items: center;
   padding: 0 24px;
   font-size: 21px;
   font-weight: 500;
-  border-bottom: 1px solid var(--black);
 }
 
 #mobile-nav #close {
@@ -240,34 +302,34 @@ body.menu_active .menu-overlay {
 
 /* Topbar */
 header {
-    width: 100%;
-    height: 96px;
-    background-color: #F5F3EC;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  height: 96px;
+  background-color: #F5F3EC;
+  display: flex;
+  justify-content: center;
 
-    position: fixed;
+  position: fixed;
   top: 0;
   width: 100%;
   transition: opacity 0.3s ease;
   z-index: 9999;
 }
 
-/* 숨김 상태 */
-header.hide {
-  transform: translateY(-100%);
-}
-
 header .mobile {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
 }
 
 header .mobile > img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
+
+/* header .mobile {
+  display: none;
+} */
+
 
 
 .topbar-inner {
@@ -279,12 +341,6 @@ header .mobile > img {
     padding: 0 0.875rem;
 }
 
-/* 좌우 동일폭 */
-/* .topbar-slot {
-    flex: 0 0 72px;
-    display: flex;
-    align-items: center;
-} */
 
 .topbar-logo {
     width: 60px;
@@ -304,8 +360,9 @@ ul.nav {
     display: flex;
     align-items: center;
     /* gap: 36px; */
-    gap: 2.25rem;
+    gap: 3.75rem;
     font-weight: 600;
+    color: var(--black);
 }
 
 ul.nav li:hover {
@@ -328,7 +385,7 @@ ul.nav li:hover {
 .main-banner img{
     width: 100%;
     height: 100%;
-    object-fit: cover;    /* 비율 유지하면서 꽉 채움 */
+    object-fit: cover;    
     display: block;
 }
 
@@ -345,22 +402,77 @@ ul.nav li:hover {
     background: url(../image/section-bg-01.jpg) no-repeat center / cover;
 }
 
-/* === 섹션 2 - 역사 === */
+/* === 섹션 2 - 역사 속 문화유산 === */
 .history {
-    width: 100%;
-    min-height: 100vh;        
-    background: #4a4645;    
-    display: flex;
-    align-items: center;
-    position: relative;
+  width: 100%;
+  min-height: 100vh;        
+  background: #4a4645;    
+  display: flex;
+  align-items: center;
+  position: relative;
 
-    background: url(../image/section-bg-03.jpg) no-repeat center / cover;
+  background: url(../image/section-bg-03.jpg) no-repeat center / cover;
+  cursor: none;
 }
+
+
+
+.custom-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #9B2335;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: all .15s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.custom-cursor.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.custom-cursor.active {
+  width: 80px;
+  height: 80px;
+  background: rgba(155, 35, 53, 0.9);
+  border-color: rgba(155, 35, 53, 0.9);
+}
+
+.custom-cursor span {
+  opacity: 0;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  transition: opacity 0.3s ease;
+}
+
+.custom-cursor.active span {
+  opacity: 1;
+}
+
+/* 마우스 커서 -- 끝 */
 
 .img-box-01 {
     position: absolute;
     left: 93px;
-    bottom: 108px;
+    top: 617px;
     width: 264px;
 }
 
@@ -372,7 +484,7 @@ ul.nav li:hover {
 
 .img-box-02 {
     position: absolute;
-    left: 710px;
+    left: 407px;
     top: 260px;
     width: 264px;
 }
@@ -385,8 +497,8 @@ ul.nav li:hover {
 
 .img-box-03 {
     position: absolute;
-    right: 641px;
-    bottom: 105px;
+    right: 724px;
+    top: 613px;
     width: 264px;
 }
 
@@ -398,7 +510,7 @@ ul.nav li:hover {
 
 .img-box-04 {
     position: absolute;
-    right: 74px;
+    right: 420px;
     top: 264px;
     width: 264px;
 }
@@ -409,11 +521,72 @@ ul.nav li:hover {
     height: 100%;
 }
 
+
+/* 액자 - 우측으로 띄우기 */
+.history-info {
+    position: absolute;
+    left: 280px; /* 액자 우측 */
+    top: 50%;
+
+    transform: translateY(-50%) translateX(-20px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    width: 324px;
+    padding: 20px 24px;
+
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(76, 71, 65, 0.95);
+    box-shadow:
+        inset 4px 4px 2px rgba(137, 137, 137, 0.25),
+        0 8px 24px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(10px);
+    color: #fff;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all .4s ease;
+    text-align: justify;
+    /* text-align: left; */
+
+    z-index: 10;
+}
+
+.history-info h3 {
+    font-size: 24px;
+    font-family: 'SF_HambakSnow';
+    line-height: normal;
+}
+
+.history-info p {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.022em;
+    line-height: 1.75;
+    word-break: keep-all;
+}
+
+.hover-image:hover .history-info {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+}
+
+
+
+
+
+
+
 /* === 섹션 2 - 연도별 기록 === */
 .since-year {
     width: 100%;
-    min-height: 100vh;       
+    height: 100vh;       
     background: #232015;
+    background: url(../image/section-bg-04.png) no-repeat center / cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -427,216 +600,200 @@ ul.nav li:hover {
     height: 100%;
 }
 
-.since-year .since-text {
+.since-text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color:#fff;
+
     margin: 0;
-    transform: translateY(-3%);
     font-family: "SF_HambakSnow";
     font-size: calc(var(--default-FZ)*8.75);
-    color: #fff;
+    line-height: normal;
+
+    opacity: 0;
+    filter: blur(40px);
+    transition: 
+      opacity 1.5s ease,
+      filter 3s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 1.5s ease;
 }
 
-/* .year-2003 {
-    width: 100%;
-    min-height: 100vh;        
-    background: #F5F3EC;    
-    display: flex;
-    align-items: center;
-    position: relative;
-}
 
-.year-2019 {
-    width: 100%;
-    min-height: 100vh;        
-    background: #F5F3EC;    
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.year-2021 {
-    width: 100%;
-    min-height: 100vh;       
-    background: #F5F3EC;    
-    display: flex;
-    align-items: center;
-    position: relative;
-} */
-
-/* 전체 섹션 */
-/* .timeline-section {
-  width: 100%;
-  height: 100vh;
-  overflow-y: scroll;
-  background: #F5F3EC;
-  scroll-snap-type: y mandatory;
-}
-
-.timeline {
-  width: 100%;
-}
-
-.timeline-item {
-  width: 100%;
-  height: 100vh;
-
-  scroll-snap-align: start; 
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;   
-  align-items: flex-start;
-
-} */
-
-.timeline-wrap {
-  position: relative;
-  height: 100vh;
-  /* overflow: hidden; */
-}
-
-/* .year-sec {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-
-  pointer-events: none;
-  z-index: 0; 
-}  */
-
-/* .year-sec.active {
+.since-text.active {
   opacity: 1;
-  transform: translateY(0); 
-  pointer-events: auto;
-  z-index: 1; 
-} */
-
-.year-sec-wrap {
-  width: 100%;
-  min-height: 100vh; 
+  filter: blur(0);
+  transform: translateY(0);
 }
 
 
-.year-sec {
-  width: 100%;
-  min-height: 100vh; 
+.since-text span {
+  font-size: 16px;
+  color:#fff;
+}
+
+
+
+/* === 섹션 6 - 연도별 역사 === */
+
+#sec1, #sec2, #sec3 {
+  position: relative;
+  background-color: #F5F3EC;
+}
+
+.history-slide {
   opacity: 0;
-  transform: translateY(40px);
+  visibility: hidden;
+  transform: scale(1.03);
 
   transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
+    opacity 1s ease,
+    transform 1s ease;
 }
 
-.year-sec.active {
+.history-slide.active {
   opacity: 1;
-  transform: translateY(0);
+  visibility: visible;
+  transform: scale(1);
 }
 
 
-
-
-/* 내부 요소 */
-.timeline-item {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.6s ease;
-  will-change: transform, opacity; /* 🔥 성능 */
-}
-
-.year-sec.active .timeline-item {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 0.3s;
-}
-
-
-
-
-/* .timeline-section {
-  width: 100%;
-  height: 100vh;
-  background: #F5F3EC;
-  scroll-snap-type: y mandatory;
-}
-
-.timeline {
-  width: 100%;
-  height: 100%;
-}
-
-.timeline-item {
-  width: 100%;
-  height: 100vh;
-  background: #F5F3EC;
-
+.year-header {
+  position: absolute;
+  left: 60px;
+  top: 160px;
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+
+.year-header span {
+  font-size: calc(var(--default-FZ)*4);
+  font-weight: 900;
+  line-height: var(--default-LH);
+}
+
+.year-header h2 {
+  margin: 0;
+  line-height: calc(var(--default-LH)*0.94);
+}
+
+.img-wrap {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.img-wrap .img-01 {
+    width: 25vw;
+    min-width: 250px;
+    height: auto;
+    display: block;
+}   
+
+.img-wrap .img-02 {
+  width: 22vw;
+  min-width: 200px;
+  height: auto;
+}
+
+
+
+.indicator {
+  position: absolute;
+  right: 60px;
+  top: 47%;
+  display: flex;
   justify-content: center;
   align-items: center;
+  gap: 320px
+}
 
-  scroll-snap-align: start;
+.year-txt {
+  color: #B8A26F;
+}
 
-  opacity: 0.2;
-  transform: translateY(30px);
+.circle-wrap {
+  position: absolute;
+  left: 60px;
+  top: 47%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.circle {
+  width: 8px;
+  height: 8px;
+  background-color: #006448;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.circle-wrap span {
+  color: #B8A26F;
+}
+
+.line {
+  position: absolute;
+  left: 60px;
+  right: 60px;
+  top: 50%;
+  transform: translateY(-50%);  
+  height: 1px;
+  background-color: #B8A26F;
 }
 
 
-.timeline-item.active {
-  opacity: 1;
-  transform: translateY(0);
-} */
-
-.timeline-item hr {
-    position: absolute;
-    top: 500px;
-    width: 1800px;
-
-    border: none;
-    height: 0.5px;
-    background-color: #B8A26F;
-    margin: 0 auto;
+#current {
+  line-height: var(--default-LH);
 }
 
-.timeline-item img {
-    width: 457px;
-    z-index: 1;
+#current strong {
+  color: #006448;
+}
+
+
+.mb-line {
+  display: none;
 }
 
 
 
 /* === 섹션 7 - 파트너사 === */
-.partners {
-    width: 100%;
-    /* min-height: 230px;        */
-    min-height: 26vh;       
-    background: #F5F3EC;    
-    display: flex;
-    align-items: center;
-    position: relative;
+main .partners {
+  min-height: 26vh;
+  background: #F5F3EC;    
+  display: flex;
+  align-items: center;
+  scroll-snap-align: none;
 }
 
 .logo-slider {
   width: 100%;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .logo-track {
   display: flex;
+  align-items: center;
   gap: 60px;
   width: max-content;
   animation: scroll 25s linear infinite;
 }
 
 .logo-track img {
+  width: auto;
   height: 50px;
   flex-shrink: 0;
+  object-fit: contain;
 }
+
 
 @keyframes scroll {
   from {
@@ -684,6 +841,12 @@ footer {
     top: 120px;
     display: flex;
     flex-direction: column;
+    gap: 252px;
+}
+
+.info-row-wrap {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
 
@@ -700,3 +863,7 @@ footer {
     gap: 48px;
 }
 
+.sns {
+  display: flex;
+  gap: 20px;
+}

@@ -1,7 +1,7 @@
 /* ===== (PC -> Tablet까지) 768px 이후 ~ ===== */
 @media screen and (min-width: 768px) {
   .mobile_menu_toggle {
-       display: none;
+    display: none;
   }
   
   #mobile-nav,
@@ -13,16 +13,148 @@
 
 
 /* ===== 1200px 이하 ===== */
-@media screen and (max-width: 1200px) {}
+@media screen and (max-width: 1200px) {
+  /* .main-banner {
+    width: 100%;
+    height: auto;
+  } */
+}
 
 
 /* ===== 1024px 이하 (태블릿) ===== */
-@media screen and (max-width: 1024px) and (min-width: 768px) {}
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  /* .main-banner {
+    width: 100%;
+    height: auto;
+  } */
+
+  .heritage-intro {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    position: relative;
+
+    background: url(../image/section-bg-01.jpg) no-repeat center / cover;
+  }
+
+  main section {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  main footer {
+    height: auto;
+    height: 560px;
+  }
+
+  .history {
+    height: auto;
+    height: 2000px;
+  }
+
+  .img-box-01 {
+    left: 60px;
+    top: 333px;
+    width: 240px;
+  }
+
+  .img-box-02 {
+    right: 60px;
+    top: 743px;
+    width: 240px;
+  }
+
+  .img-box-03 {
+    left: 60px;
+    top: 1157px;
+    width: 240px;
+  }
+
+  .img-box-04 {
+    right: 60px;
+    top: 1562px;
+    width: 240px;
+    height: auto;
+  }
+
+  .introSwiper {
+    margin-top: 100px;
+  }
+
+  .since-year {
+    height: auto;
+    height: 950px;
+  }
+
+  .img-box-01 .history-info,
+  .img-box-03 .history-info {
+    left: 260px;
+    right: auto;
+  }
+
+  .img-box-02 .history-info,
+  .img-box-04 .history-info {
+    left: auto;
+    right: 260px;
+  }
+
+
+
+  .history-info p {
+    font-size: 14px;
+  }
+
+  .year-header {
+    top: 80px;
+  }
+
+  .year-header span {
+    line-height: normal;
+  }
+
+  .img-wrap .img-01 {
+    width: auto;
+    height: 340px;
+  }
+
+  .img-wrap .img-02 {
+    width: auto;
+    height: 340px;
+  }
+
+  .indicator {
+    top: 370px;
+    gap: 60px;
+  }
+
+  .circle-wrap {
+    top: 370px;
+  }
+
+  .line {
+    top: 50%;
+  }
+  
+  .logo-track img {
+    height: 40px;
+  }
+
+  .footer-right {
+    right: 60px;
+    top: 70px;
+    gap: 270px;
+  }
+
+}
 
 
 /* ===== 768px 이하 (모바일 큰 화면) ===== */
 @media screen and (max-width: 768px) {
-    header .mobile {
+  .pc-nav {
+    display: none;
+  }
+
+  header .mobile {
     display: flex;
     align-items: center;
   }
@@ -36,32 +168,241 @@
     cursor: pointer;
   }
   
-  .pc-nav {
-    display: none;
+
+  #mobile-nav {
+    width: 100%;
   }
 
   #mobile-nav header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    /* margin-bottom: 40px; */
+    height: 60px;
   }
 
   #mobile-nav #close {
-    width: 40px;
-    height: 40px;
+    width: 40px !important;
+    height: 40px !important;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     z-index: 1000;
   }
+
+  .mobile_menu_toggle {
+    display: none;
+  }
+
+  .heritage-intro {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    height: auto;
+    height: 2220px;
+    padding: 0 40px;
+  }
+
+  .section-header {
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .heritage-intro {
+    height: auto;
+    height: 3600px;
+  }
+
+  .introSwiper {
+    width: auto;
+    margin: 0 -100px;
+  }
+
+  .introSwiper .swiper-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+    transform: none !important;
+  }
+
+  /* .introSwiper .swiper-slide {
+    width: 100% !important;
+    margin-right: 0 !important;
+  } */
+
+  .introSwiper .swiper-slide{
+    width: fit-content !important;
+    margin: 0 auto;
+  }
+
+  .introSwiper .swiper-pagination {
+    display: none;
+  }
+
+  main section {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .section-header {
+    left: 144px;
+    right: 144px;
+    top: 80px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .history {
+    height: auto;
+    height: 2000px;
+  }
+
+  .img-box-01 {
+    left: 60px;
+    top: 333px;
+    width: 240px;
+  }
+
+  .img-box-02 {
+    right: 60px;
+    top: 743px;
+    width: 240px;
+  }
+
+  .img-box-03 {
+    left: 60px;
+    top: 1157px;
+    width: 240px;
+  }
+
+  .img-box-04 {
+    right: 60px;
+    top: 1562px;
+    width: 240px;
+    height: auto;
+  }
+
+  .since-year {
+    height: auto;
+    height: 950px;
+  }
+
+  .year-header {
+    left: 144px;
+    right: 144px;
+    top: 80px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .year-header span {
+    line-height: 1;
+  }
+
+  .img-box-01 .history-info,
+  .img-box-03 .history-info {
+    left: 260px;
+    right: auto;
+  }
+
+  .img-box-02 .history-info,
+  .img-box-04 .history-info {
+    left: auto;
+    right: 260px;
+  }
+
+  .indicator {
+    gap: 60px;
+    font-size: 14px;
+  }
+
+  .circle-wrap {
+    font-size: 14px  ;
+  }
+
+  .since-text span {
+    font-size: 20px;
+  }
+
+  .since-text h2 {
+    font-size: 96px;
+  }
+
+  .logo-track img {
+    height: 30px;
+  }
+
+  footer {
+    height: auto;
+    height: 620px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .footer-left {
+    position: static;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .footer-title {
+    font-size: calc(var(--default-FZ)*1.5);
+  }
+
+  .footer-right {
+    position: static;
+    gap: 60px;    
+  }
+
+  .info-row-wrap {
+    align-items: center;
+    font-size: 14px;
+  }
+
+  .info-row {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .info-row:nth-child(1) {
+    gap: 20px;
+  }
+
+  .info-row:nth-child(2) {
+    gap: 20px;
+  }
+
+  .info-row:nth-child(3) {
+    gap: 20px;
+  }
+
+  .sns {
+    justify-content: center;
+  }
 }
+
 
 
 /* ===== 480px 이하 (모바일) ===== */
 @media screen and (max-width: 480px) {
-    .pc-nav {
+  .pc-nav {
     display: none;
   }
 
@@ -75,34 +416,128 @@
     align-items: center;
   }
 
+  #mobile-nav header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100px;
+  }
+
+  #mobile-nav nav{
+    padding-top: 100px; /* header 높이만큼 밀기 */
+  }
+
   #mobile-nav #close {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 1000;
-  }
 
-  #mobile-nav #close img {
+  width: 40px !important;
+  height: 40px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  z-index: 9999;
+}
+
+#mobile-nav #close img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+
+  
+
+  .main-banner img{
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+    height: 240px;
+    object-fit: cover;
   }
 
-  .mobile_menu_toggle {
+  .main-banner {
+    height: auto;
+  }
+
+  .history {
+    height: auto;
+    height: 2680px;
+  }
+
+  .img-box-01,
+  .img-box-02,
+  .img-box-03,
+  .img-box-04{
+        left: 50%;
+        transform: translateX(-50%);
+  }
+
+  .hover-image{
     position: relative;
-    width: 44px;
-    height: 44px;
-    cursor: pointer;
-    z-index: 999;
   }
 
-  .mobile_menu_toggle img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
+  .img-box-01 .history-info,
+  .img-box-02 .history-info,
+  .img-box-03 .history-info,
+  .img-box-04 .history-info {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+
+    transform: translateX(-50%) translateY(-10px);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
   }
+
+  .hover-image:hover .history-info{
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateX(-50%) translateY(0);
+  }
+  
+  .since-text h2 {
+    font-size: calc(var(--default-FZ)*4);
+    line-height: 1.5;
+  }
+
+  #sec1, #sec2, #sec3 {
+    height: auto;
+    height: 680px;
+  }
+
+  .indicator .year-txt::before{
+    content: "·";
+    margin-right: 10px;
+    color: #B8A26F;
+  }
+
+  .year-header h2 {
+    font-size: calc(var(--default-FZ)*0.875);
+  }
+
+  .line{
+    display: none;
+  }
+
+  .circle-wrap {
+    left: 35%;
+    top: 32%;
+    gap: 8px;
+  }
+  
+  .circle {
+    width: 6px;
+    height: 6px;
+  }
+
+  .indicator {
+    right: 37%;
+    top: 66%;
+    gap: 14px;
+  }
+
+  .partners {}
 }

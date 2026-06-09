@@ -1,0 +1,117 @@
+.swiper {
+  margin-right: 0 !important;
+}
+
+
+
+
+/* ===== 역사 속 문화유산 ===== */
+.heritage-intro {
+  overflow: hidden;
+}
+
+
+/* .introSwiper {
+  position: relative;
+  overflow: visible;
+  padding-bottom: 80px;
+} */
+
+.introSwiper .swiper-wrapper {
+  overflow: visible;
+}
+
+
+.introSwiper {
+  overflow: hidden;
+  width: calc(100% - 430px);
+  margin-left: 430px;
+  position: relative;
+  padding-bottom: 80px;
+}
+
+.introSwiper .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 524px;
+    height: auto;
+}
+
+.introSwiper .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.introSwiper  .card-box {
+  width: 100%;
+  max-width: 524px;
+  height: 561px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #E7E1D3;
+}
+
+.introSwiper .card-box img{
+    width: 100%;
+    /* max-width: 524px; */
+    height: 280px;
+    display: block;
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 42px;
+    line-height: 1.6;
+    text-align: center;
+    background-color: #E7E1D3;
+}
+
+.card-text-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card-text h2{
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.card-text span{
+    display: block;
+    font-size: 16px;
+}
+
+.card-text p{
+    font-size: 14px;
+    color: #666;
+}
+
+
+
+/* 페이지네이션 svg */
+
+.introSwiper .swiper-pagination {
+    bottom: -120px !important;
+}
+
+.swiper-pagination-bullet {
+  width: 20px !important;
+  height: 20px !important;
+  background: url('../image/page-icon-on.svg') no-repeat center !important;
+  background-size: contain !important;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
